@@ -11,16 +11,15 @@ function App() {
     <>
       <Typography>
 
-        <Title className="title">SharpDllProxy-GUI</Title>
-        <p className="descrption">{t("descrption")}</p>
+        <Title id="title">SharpDllProxy-GUI</Title>
+        <p id="subtitle">{t("Subtitle")}</p>
       <Divider />
       <Flex>
-        <Form
+        <Form  
         name="mainForm"
         id="mainForm"
         initialValues={{ remember: true }}
         autoComplete="off"
-        style={{ width: "50%" }}
       >
         <Flex justify="center" gap={"large"}>
         <Form.Item
@@ -31,10 +30,9 @@ function App() {
             <p className="ant-upload-drag-icon">
               <InboxOutlined />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                  <p className="ant-upload-text">{t("DLLUploadDesc")}</p>
             <p className="ant-upload-hint">
-              Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-              banned files.
+                    {t("DLLUploadHint")}
             </p>
           </Dragger>
               </Form.Item>
@@ -47,29 +45,29 @@ function App() {
             <p className="ant-upload-drag-icon">
               <InboxOutlined />
             </p>
-            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                  <p className="ant-upload-text">{t("BinUploadDesc")}</p>
             <p className="ant-upload-hint">
-              Support for a single or bulk upload. Strictly prohibited from uploading company data or other
-              banned files.
+                    {t("BinUploadHint")}
             </p>
           </Dragger>        
           </Form.Item>
         </Flex>
 
-          <Button>Primary Button</Button>
-          <br />
-          <br />
-          <Button disabled>Primary Button</Button>
-      </Form>
-        <Divider type={"vertical"}/>
+            <Flex gap={"large"}>
 
-          <p className="descrption">description</p>
+            <Button>{t("UploadButton")}</Button>
+            <Button disabled>{t("DownloadButton")}</Button>
+    </Flex>
+
+      </Form>
+
+          <p id="descrption">{t("Descrption")}</p>
 
       </Flex>
 
       <Divider />
-        <p className="descrption">
-        Provide by LingkongSky
+        <p id="bottomText">
+          {t("BottomText")}
       </p>
       </Typography>
     </>

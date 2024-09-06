@@ -1,3 +1,11 @@
 {
-    	"descrption": "SharpDLLProxy可用于快速生成DLL Hook代码，提供模板以帮助逆向人员进行安全测试"
+	"Subtitle": "SharpDLLProxy可用于快速生成DLL Hook代码，提供模板以帮助逆向人员进行安全测试",
+	"DLLUploadDesc": "Click or drag file to this area to upload(DLL)",
+	"DLLUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
+	"BinUploadDesc": "Click or drag file to this area to upload(Bin)",
+	"BinUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
+	"Descrption": "Retrieves exported functions from a legitimate DLL and generates a proxy DLL source code/template for DLL proxy loading or sideloading.Created together with a blog post for redteaming.co.uk -> https: //redteaming.co.uk/2020/07/12/dll-proxy-loading-your-favorite-c-implant/   ",
+	"UploadButton": "Upload Button",
+	"DownloadButton": "Download Button",
+	"BottomText": "Provide by LingkongSky"
 }

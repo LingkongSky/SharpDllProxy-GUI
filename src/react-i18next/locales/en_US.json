@@ -1,3 +1,11 @@
 {
-    "descrption": "Hello Word"
+    "Subtitle": "Hello Word",
+    "DLLUploadDesc": "Click or drag file to this area to upload(DLL)",
+    "DLLUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
+    "BinUploadDesc": "Click or drag file to this area to upload(Bin)",
+    "BinUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
+    "Descrption": "description",
+    "UploadButton": "Upload Button",
+    "DownloadButton": "Download Button",
+    "BottomText": "Provide by LingkongSky"
 }

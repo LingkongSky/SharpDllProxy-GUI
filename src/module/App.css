@@ -3,15 +3,24 @@ body {
 
 }
 
-.title {
+#title {
     text-align: center;
 }
 
-
-.descrption {
+#subtitle {
     text-align: center;
 }
 
 #mainForm {
-    padding: 5%;
+    padding: 3%;
+    width: 50%;
+}
+
+#descrption {
+    text-align: center;
+    width: 50%;
+}
+
+#bottomText {
+    text-align: center;
 }
