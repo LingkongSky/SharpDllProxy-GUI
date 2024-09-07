@@ -1,5 +1,5 @@
 body {
-    padding: 3%;
+    padding: 2%;
 
 }
 
@@ -19,6 +19,7 @@ body {
 #descrption {
     text-align: center;
     width: 50%;
+    white-space: pre-wrap;
 }
 
 #bottomText {

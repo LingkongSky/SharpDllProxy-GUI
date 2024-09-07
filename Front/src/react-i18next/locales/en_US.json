@@ -7,5 +7,9 @@
     "Descrption": "description",
     "UploadButton": "Upload Button",
     "DownloadButton": "Download Button",
-    "BottomText": "Provide by LingkongSky"
+    "BottomText": "Provide by LingkongSky",
+    "FileSizeTooBig": "File size is too big,the max size is ",
+    "UploadError": "Uncaught upload error occured. ",
+    "Processing": "Processing...",
+    "PleaseUpload": "Please upload the file"
 }
