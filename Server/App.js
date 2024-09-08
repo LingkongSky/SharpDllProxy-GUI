@@ -1,13 +1,23 @@
-var helmet = require('helmet');
 const express = require("express");
-var app = express();
-
-app.use('/',express.static("../Front/dist"));
-
-
-app.listen(4156, () => {
-    console.log("Server start in port:4156 !");
-});
+const helmet = require('helmet');
+const app = express();
+const upload = require("./upload");
+const server = require("./util");
 
 
-app.use(helmet());
+try{
+    // Start the  server
+    app.use(helmet());
+    app.use('/', express.static("../Front/dist"));
+    app.use("/upload",upload);
+
+    app.listen(server.port, server.host, () => {
+        console.log("Server start in " + server.host + ":" + server.port);
+    });
+
+    }catch(e){
+    console.log(e);
+    process.exit(1);
+}
+
+

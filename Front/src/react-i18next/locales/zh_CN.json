@@ -7,5 +7,9 @@
 	"Descrption": "Retrieves exported functions from a legitimate DLL and generates a proxy DLL source code/template for DLL proxy loading or sideloading.\nCreated together with a blog post for redteaming.co.uk -> https: //redteaming.co.uk/2020/07/12/dll-proxy-loading-your-favorite-c-implant/   ",
 	"UploadButton": "Upload Button",
 	"DownloadButton": "Download Button",
-	"BottomText": "Provide by LingkongSky"
+	"BottomText": "Provide by LingkongSky",
+	"FileSizeTooBig": "File size is too big,the max size is ",
+	"UploadError": "Uncaught upload error occured. ",
+	"Processing": "Processing...",
+	"PleaseUpload": "Please upload the file"
 }

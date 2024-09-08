@@ -19,39 +19,38 @@ const App: React.FC = () => {
   const { t } = useTranslation();
 
   // submit the form
-  function onFinish(values:any) {
+  function onFinish(values: any) {
 
     setButtonLoading(true);
 
     var formData = new FormData();
 
 
-    var i : number = 0;
-    
     // scan the files
-        if (values.files) {
-            for (var file of values.files.fileList) {
+    if (values.DLL) {
+      var file = values.DLL.fileList;
 
-                if (file.size > 1024*1024*200) {
-                  messageApi.error(t("FileSizeTooBig") + "200MB");
-                    setButtonLoading(false);
-                    return;
-                }
+      //alert(JSON.stringify(file[0].name));
 
-                var convertedFile = new File([file.originFileObj], file.name);
-                formData.append("files" + i, convertedFile, convertedFile.name);
-                i++;
-            }
-        }else{
-          messageApi.info(t("PleaseUpload"));
-            setButtonLoading(false);
-            return;
-        }
+      var convertedFile = new File([file[0].originFileObj], file[0].name + ".dll");
+      formData.append("files", convertedFile, convertedFile.name);
+    } else {
+      messageApi.info(t("PleaseUpload"));
+      setButtonLoading(false);
+      return;
+    }
+
+
+    if (values.Bin) {
+      var file = values.Bin.fileList;
+      var convertedFile = new File([file[0].originFileObj], file[0].name + ".bin");
+      formData.append("files", convertedFile, convertedFile.name);
+    }
 
 
     // post the files
     $.ajax({
-      url: "/Server/user/todos.php",
+      url: "./upload",
       type: "post",
       data: formData,
       cache: false,
@@ -80,58 +79,50 @@ const App: React.FC = () => {
         <Title id="title">SharpDllProxy-GUI</Title>
         <p id="subtitle">{t("Subtitle")}</p>
         <Divider />
-        <Flex> 
+        <Flex>
 
 
-          <Form
-            name="mainForm"
-            id="mainForm"
-            autoComplete="off"
-            onFinish={onFinish}
-          >
+          <Form name="mainForm" id="mainForm" autoComplete="off" onFinish={onFinish}  >
             <Flex justify="center" gap={"large"}>
-              <Form.Item
-                name="DLL"
-                rules={[{ required: true, message: 'Please input your DLL!' }]}
-                
-              >
-                <Dragger accept=".dll" maxCount={1} beforeUpload={() => false}
->
-                  <p className="ant-upload-drag-icon">
-                    <InboxOutlined />
-                  </p>
+
+
+
+              <Form.Item name="DLL" rules={[{ required: true, message: 'Please input your DLL!' }]}>
+                <Dragger accept=".dll" maxCount={1} beforeUpload={() => false}>
+                  <p className="ant-upload-drag-icon"><InboxOutlined /></p>
                   <p className="ant-upload-text">{t("DLLUploadDesc")}</p>
-                  <p className="ant-upload-hint">
-                    {t("DLLUploadHint")}
-                  </p>
+                  <p className="ant-upload-hint">{t("DLLUploadHint")}</p>
                 </Dragger>
               </Form.Item>
+
+
 
               <Form.Item name="Bin">
                 <Dragger maxCount={1} beforeUpload={() => false}>
-                  <p className="ant-upload-drag-icon">
-                    <InboxOutlined />
-                  </p>
+                  <p className="ant-upload-drag-icon"><InboxOutlined /></p>
                   <p className="ant-upload-text">{t("BinUploadDesc")}</p>
-                  <p className="ant-upload-hint">
-                    {t("BinUploadHint")}
-                  </p>
+                  <p className="ant-upload-hint">{t("BinUploadHint")}</p>
                 </Dragger>
               </Form.Item>
+
+
             </Flex>
             <Flex gap={"large"}>
+
+
               <Form.Item >
                 <Button loading={buttonLoading} htmlType="submit">{t("UploadButton")}</Button>
-            </Form.Item>
+              </Form.Item>
+
 
               <Button disabled>{t("DownloadButton")}</Button>
+
+              
             </Flex>
           </Form>
-
-
           <p id="descrption">{t("Descrption")}</p>
-
         </Flex>
+
 
         <Divider />
         <p id="bottomText">
