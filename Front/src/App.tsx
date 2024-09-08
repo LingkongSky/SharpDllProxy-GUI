@@ -32,7 +32,7 @@ const App: React.FC = () => {
 
       //alert(JSON.stringify(file[0].name));
 
-      var convertedFile = new File([file[0].originFileObj], file[0].name + ".dll");
+      var convertedFile = new File([file[0].originFileObj], file[0].name);
       formData.append("files", convertedFile, convertedFile.name);
     } else {
       messageApi.info(t("PleaseUpload"));
@@ -43,7 +43,7 @@ const App: React.FC = () => {
 
     if (values.Bin) {
       var file = values.Bin.fileList;
-      var convertedFile = new File([file[0].originFileObj], file[0].name + ".bin");
+      var convertedFile = new File([file[0].originFileObj], file[0].name);
       formData.append("files", convertedFile, convertedFile.name);
     }
 

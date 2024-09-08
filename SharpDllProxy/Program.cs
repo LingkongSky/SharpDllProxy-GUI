@@ -83,7 +83,11 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
             // 目标dll路径
             var orgDllPath = @"";
 
+            var orgName = @"";
+
             var payloadPath = @"";
+
+            var outputPath = @"";
 
             var pragmaBuilder = "";
 
@@ -92,23 +96,41 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
             for (int i = 0; i < args.Length; i++)
             {
 
-                if (args[i].ToLower().Equals("--dll") || args[i].ToLower().Equals("-dll"))
+                if (args[i].ToLower().Equals("--dll"))
                 {
                     if (i + 1 < args.Length)
                         orgDllPath = Path.GetFullPath(args[i + 1]);
                 }
 
 
-                if (args[i].ToLower().Equals("--payload") || args[i].ToLower().Equals("-payload"))
+                if (args[i].ToLower().Equals("--payload"))
                 {
                     if (i + 1 < args.Length) {
                         //Needed to filter filename input from powershell
                         payloadPath = Path.GetFileName(args[i + 1]);
                     }
                 }
+
+                if (args[i].ToLower().Equals("--output"))
+                {
+                    if (i + 1 < args.Length) {
+                        //Needed to filter filename input from powershell
+                        outputPath = Path.GetFileName(args[i + 1]);
+                    }
+                }
+
+
+                if (args[i].ToLower().Equals("--name"))
+                {
+                    if (i + 1 < args.Length) {
+                        //Needed to filter filename input from powershell
+                        orgName = Path.GetFileName(args[i + 1]);
+                    }
+                }
+
             }
 
-
+            // 修改结果目录
 
 
             if (string.IsNullOrWhiteSpace(orgDllPath) || !File.Exists(orgDllPath)) {
@@ -124,9 +146,9 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
 
 
             //Create an output directory to export stuff too
-            string outPath = Directory.CreateDirectory("output_" + Path.GetFileNameWithoutExtension(orgDllPath)).FullName;
+            //string outPath = Directory.CreateDirectory("output_" + Path.GetFileNameWithoutExtension(orgDllPath)).FullName;
 
-            Console.WriteLine($"[+] Reading exports from {orgDllPath}...");
+            //Console.WriteLine($"[+] Reading exports from {orgDllPath}...");
 
             //Read PeHeaders -> Exported Functions from provided DLL
             PeNet.PeFile dllPeHeaders = new PeNet.PeFile(orgDllPath);
@@ -145,7 +167,10 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
 
             Console.WriteLine($"[+] Exporting DLL C source to {outPath + @"/" + Path.GetFileNameWithoutExtension(orgDllPath)}_pragma.c");
 
-            File.WriteAllText($@"{outPath + @"/" + Path.GetFileNameWithoutExtension(orgDllPath)}_pragma.c", dllTemplate);
+
+            File.WriteAllText($@"{outPath + @"/" + Path.GetFileNameWithoutExtension(orgName)}_pragma.c", dllTemplate);
+
+
             File.WriteAllBytes(outPath + @"/" + tempName + ".dll", File.ReadAllBytes(orgDllPath));
 
 
