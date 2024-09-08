@@ -5,11 +5,14 @@
     "BinUploadDesc": "Click or drag file to this area to upload(Bin)",
     "BinUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
     "Descrption": "description",
-    "UploadButton": "Upload Button",
-    "DownloadButton": "Download Button",
+    "UploadButton": "Srtart Upload",
+    "ProgDownloadButton": "Download Program(C)",
+    "DllDownloadButton": "Download DLL",
     "BottomText": "Provide by LingkongSky",
     "FileSizeTooBig": "File size is too big,the max size is ",
     "UploadError": "Uncaught upload error occured. ",
     "Processing": "Processing...",
-    "PleaseUpload": "Please upload the file"
+    "PleaseUpload": "Please upload the file",
+    "InProgress": "Program is running... Please wait for a minute",
+    "DownloadError": "Uncaught error occured,download failed."
 }

@@ -1,7 +1,0 @@
-{
-    "host": "127.0.0.1",
-    "port": "4156",
-    "input_path": "./files/input",
-    "output_path": "./files/output",
-    "sharp_dll_proxy": "../SharpDllProxy/SharpDllProxy"
-}

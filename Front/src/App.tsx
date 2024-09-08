@@ -4,6 +4,7 @@ import { InboxOutlined } from '@ant-design/icons';
 import './App.css'
 import { useState } from "react";
 import $ from 'jquery'
+import { url } from "inspector";
 
 const { Dragger } = Upload;
 const { Title } = Typography;
@@ -14,7 +15,9 @@ const App: React.FC = () => {
 
   const [buttonLoading, setButtonLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
-
+  const [isDownloadAble, setIsDownloadAble] = useState(false);
+  const [isUploadEnable, setIsUploadEnable] = useState(false);
+  const [downloadUrl, setDownloadUrl] = useState("");
 
   const { t } = useTranslation();
 
@@ -47,6 +50,7 @@ const App: React.FC = () => {
       formData.append("files", convertedFile, convertedFile.name);
     }
 
+    messageApi.info(t("InProgress"));
 
     // post the files
     $.ajax({
@@ -57,9 +61,11 @@ const App: React.FC = () => {
       contentType: false,
       processData: false,
       success: function (data: any) {
-        if (data == "success") {
-          messageApi.success(t("Processing"));
+        if ("url" in data) {
+          setIsUploadEnable(true);
           setButtonLoading(false);
+          setIsDownloadAble(true);
+          setDownloadUrl(data.url);
         }
       },
       error: function (err: any) {
@@ -68,8 +74,23 @@ const App: React.FC = () => {
       },
     });
 
-
   };
+
+  function donwload(mode: number) {
+    window.location.href = "./download?mode=" + mode + "&url=" + downloadUrl;
+    /*
+    $.ajax({
+      url: "./download?mode=" + mode + "&url=" + downloadUrl,
+      type: "get",
+      success: function (data: any) {
+        
+      },
+      error: function (err: any) {
+        messageApi.error(t("DownloadError") + err);
+      },
+    });*/
+   }
+
 
 
   return (
@@ -111,13 +132,19 @@ const App: React.FC = () => {
 
 
               <Form.Item >
-                <Button loading={buttonLoading} htmlType="submit">{t("UploadButton")}</Button>
+                <Button loading={buttonLoading} disabled={isUploadEnable} htmlType="submit">{t("UploadButton")}</Button>
               </Form.Item>
 
 
-              <Button disabled>{t("DownloadButton")}</Button>
+              {
+                isDownloadAble &&
+                <>
+                  <Button onClick={() => donwload(0)}>{t("ProgDownloadButton")}</Button>
+                  <Button onClick={() => donwload(1)}>{t("DllDownloadButton")}</Button>
+                </>
+              }
 
-              
+
             </Flex>
           </Form>
           <p id="descrption">{t("Descrption")}</p>

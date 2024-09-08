@@ -100,6 +100,7 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
                 {
                     if (i + 1 < args.Length)
                         orgDllPath = Path.GetFullPath(args[i + 1]);
+                        i++;
                 }
 
 
@@ -107,7 +108,8 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
                 {
                     if (i + 1 < args.Length) {
                         //Needed to filter filename input from powershell
-                        payloadPath = Path.GetFileName(args[i + 1]);
+                        payloadPath = Path.GetFullPath(args[i + 1]);
+                        i++;
                     }
                 }
 
@@ -115,7 +117,8 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
                 {
                     if (i + 1 < args.Length) {
                         //Needed to filter filename input from powershell
-                        outputPath = Path.GetFileName(args[i + 1]);
+                        outputPath = Path.GetFullPath(args[i + 1]);
+                        i++;
                     }
                 }
 
@@ -124,13 +127,12 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
                 {
                     if (i + 1 < args.Length) {
                         //Needed to filter filename input from powershell
-                        orgName = Path.GetFileName(args[i + 1]);
+                        orgName = Path.GetFullPath(args[i + 1]);
+                        i++;
                     }
                 }
 
             }
-
-            // 修改结果目录
 
 
             if (string.IsNullOrWhiteSpace(orgDllPath) || !File.Exists(orgDllPath)) {
@@ -165,13 +167,13 @@ DWORD WINAPI DoMagic(LPVOID lpParameter)
             dllTemplate = dllTemplate.Replace("PRAGMA_COMMENTS", pragmaBuilder);
             dllTemplate = dllTemplate.Replace("PAYLOAD_PATH", payloadPath);
 
-            Console.WriteLine($"[+] Exporting DLL C source to {outPath + @"/" + Path.GetFileNameWithoutExtension(orgDllPath)}_pragma.c");
+            Console.WriteLine($"[+] Exporting DLL C source to {outputPath + @"/" + Path.GetFileNameWithoutExtension(orgDllPath)}_pragma.c");
 
 
-            File.WriteAllText($@"{outPath + @"/" + Path.GetFileNameWithoutExtension(orgName)}_pragma.c", dllTemplate);
+            File.WriteAllText($@"{outputPath + @"/" + Path.GetFileNameWithoutExtension(orgName)}_pragma.c", dllTemplate);
 
 
-            File.WriteAllBytes(outPath + @"/" + tempName + ".dll", File.ReadAllBytes(orgDllPath));
+            File.WriteAllBytes($@"{outputPath + @"/" + tempName + ".dll"}", File.ReadAllBytes(orgDllPath));
 
 
         }

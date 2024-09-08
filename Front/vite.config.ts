@@ -35,6 +35,10 @@ export default defineConfig({
       '/upload': {
         target: 'http://127.0.0.1:4156',
         changeOrigin: true,
+      }, 
+      '/download': {
+        target: 'http://127.0.0.1:4156',
+        changeOrigin: true,
       },
     },
   },
