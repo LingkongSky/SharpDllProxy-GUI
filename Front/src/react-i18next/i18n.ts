@@ -3,7 +3,11 @@ import { initReactI18next } from 'react-i18next';
 import { resources } from './locales/resources';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const currentLocale = localStorage.getItem('lan') || navigator.language;
+var currentLocale = localStorage.getItem('lan') || navigator.language;
+if (!["zh-CN","en-US"].includes(navigator.language)){
+    currentLocale = "en-US";
+}
+
 
 i18n
     .use(LanguageDetector)
@@ -14,7 +18,7 @@ i18n
         fallbackLng: currentLocale, 
         debug: false,
         interpolation: {
-            escapeValue: false, // not needed for react as it escapes by default
+            escapeValue: false,
         },
         detection: {
             caches: ['localStorage', 'sessionStorage', 'cookie'],
