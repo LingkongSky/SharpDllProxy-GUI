@@ -1,7 +1,8 @@
-process.env["NODE_CONFIG_DIR"] = "../";
-const config = require('config');
 const fs = require('fs');
 const path = require('path');
+process.env["NODE_CONFIG_DIR"] = path.resolve(__dirname, '..');
+const config = require('config');
+
 
 var host, port, input_path, output_path, sharp_dll_proxy, max_file_size;
 
@@ -42,19 +43,8 @@ if (config.has('host') && config.get('host') &&
 
 
 // create the folder if the folder not exist
-function createFolder(folderpath) {
-    try {
-        const pathArr = folderpath.split('/');
-        let dir_path = '/';
-        for (let i = 0; i < pathArr.length; i++) {
-            if (pathArr[i]) {
-                dir_path = path.join(dir_path, pathArr[i]);
-                if (!fs.existsSync(dir_path)) {
-                    fs.mkdirSync(dir_path);
-                }
-            }
-        }
-    } catch (e) {
-        console.log(e);
+function createFolder(folderPath) {
+    if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath,{recursive: true});
     }
 }

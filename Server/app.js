@@ -13,7 +13,7 @@ const output_path = server.output_path;
 try{
     // Start the server
     app.use(helmet());
-    app.use('/', express.static("../Front/dist"));
+    app.use('/', express.static(path.resolve(__dirname, '..')  + "/Front/dist"));
     app.use("/upload", upload);
     app.use("/download", download);
 
@@ -25,7 +25,7 @@ try{
 
 
     app.listen(server.port, server.host, () => {
-        console.log("Server start in " + server.host + ":" + server.port);
+        console.log("Server start in http://" + server.host + ":" + server.port);
     });
     }catch(e){
     console.log(e);

@@ -188,7 +188,8 @@ const App: React.FC = () => {
 
 
         <p id="bottomText">
-          {t("BottomText")}
+          {t("BottomText")}@<a href="https://github.com/LingkongSky/SharpDllProxy-GUI">https://github.com/LingkongSky/SharpDllProxy-GUI</a>
+
         </p>
       </Typography>
 

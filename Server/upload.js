@@ -18,7 +18,6 @@ router.post('/', upload.array('files', 2) ,(req, res) => {
     }
 
     const count = req.files.length;
-    //const { originalname, size } = req.files[0];
     
     for(var i=0;i<count;i++){
         if (req.files[i].size > max_file_size) {

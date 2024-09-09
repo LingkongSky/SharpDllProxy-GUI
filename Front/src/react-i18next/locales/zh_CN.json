@@ -4,7 +4,7 @@
 	"DLLUploadHint": "上传用于转发的DLL目标文件",
 	"BinUploadDesc": "点击或拖拽以上传文件(Bin)",
 	"BinUploadHint": "上传用于执行的Bin数据文件",
-	"Descrption": "SharpDLLProxy是一款用于生成DLL Hook代码的插件，提供了模板以帮助逆向人员进行安全测试。\n由redteaming.co.uk于2020年7月12日发布，详细内容请见：https://redteaming.co.uk/2020/07/12/dll-proxy-loading-your-favorite-c-implant/",
+	"Descrption": "SharpDLLProxy是一个用于生成DLL Hook代码的项目，可快速根据DLL导出表生成对应的转发代码，同时提供代码模板以帮助逆向人员进行安全测试。\n该页面基于Vite+React构建。",
 	"UploadButton": "开始上传",
 	"ProgDownloadButton": "下载源程序(C)",
 	"DllDownloadButton": "下载DLL",

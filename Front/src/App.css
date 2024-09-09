@@ -11,13 +11,13 @@ body {
 }
 
 #mainForm {
-    padding-left: 3%;
-    padding-right: 3%;    
-    width: 50%;
+    padding-left: 8%;
+    padding-right: 8%;    
+    width: 70%;
 }
 
 .languageChange,.ant-dropdown {
-    padding-left: 3%;
+    padding-left: 8%;
 }
 
 .divider2{
@@ -26,8 +26,8 @@ body {
 
 
 #descrption {
-    text-align: center;
-    width: 50%;
+    padding-right: 8%;
+    width: 30%;
     white-space: pre-wrap;
 }
 
