@@ -25,3 +25,7 @@ body {
 #bottomText {
     text-align: center;
 }
+
+.checked{
+    color: #1677ff !important;
+}

@@ -1,14 +1,12 @@
 import { useTranslation } from "react-i18next";
-import { Button, Divider, Flex, Form, Upload, message, Typography } from "antd";
-import { InboxOutlined } from '@ant-design/icons';
+import { Button, Divider, Flex, Form, Upload, message, Typography, MenuProps, Dropdown, Space } from "antd";
+import { InboxOutlined, DownOutlined } from '@ant-design/icons';
 import './App.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import $ from 'jquery'
-import { url } from "inspector";
 
 const { Dragger } = Upload;
 const { Title } = Typography;
-
 
 
 const App: React.FC = () => {
@@ -18,8 +16,35 @@ const App: React.FC = () => {
   const [isDownloadAble, setIsDownloadAble] = useState(false);
   const [isUploadEnable, setIsUploadEnable] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState("");
+  const [language,setLanguage] = useState("zh-CN");
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <a className={language == "zh-CN" ? "checked" : "none"} target="_blank" rel="noopener noreferrer" onClick={() => { changeLanguage("zh-CN")}}>
+          简体中文
+        </a>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <a className={language == "en-US" ? "checked" : "none"} target="_blank" rel="noopener noreferrer" onClick={() => { changeLanguage("en-US") }}>
+         English
+        </a>
+      ),
+    },
+  ];
+
+  function changeLanguage(lang: string){
+    i18n.changeLanguage(lang);
+    setLanguage(lang);
+    localStorage.setItem('lan', lang);
+  }
+
 
   // submit the form
   function onFinish(values: any) {
@@ -78,20 +103,11 @@ const App: React.FC = () => {
 
   function donwload(mode: number) {
     window.location.href = "./download?mode=" + mode + "&url=" + downloadUrl;
-    /*
-    $.ajax({
-      url: "./download?mode=" + mode + "&url=" + downloadUrl,
-      type: "get",
-      success: function (data: any) {
-        
-      },
-      error: function (err: any) {
-        messageApi.error(t("DownloadError") + err);
-      },
-    });*/
    }
 
-
+  useEffect(() => {
+    setLanguage(i18n.language);
+  }, []);
 
   return (
     <>
@@ -104,7 +120,7 @@ const App: React.FC = () => {
 
 
           <Form name="mainForm" id="mainForm" autoComplete="off" onFinish={onFinish}  >
-            <Flex justify="center" gap={"large"}>
+            <Flex gap={"large"}>
 
 
 
@@ -152,11 +168,24 @@ const App: React.FC = () => {
 
 
         <Divider />
+
+        <Dropdown menu={{ items }}>
+          <a onClick={(e) => e.preventDefault()}>
+            <Space>
+              {t("ChangeLanguage")}
+              <DownOutlined />
+            </Space>
+          </a>
+        </Dropdown>
+
+
         <p id="bottomText">
           {t("BottomText")}
         </p>
       </Typography>
 
+
+      
       {contextHolder}
 
     </>

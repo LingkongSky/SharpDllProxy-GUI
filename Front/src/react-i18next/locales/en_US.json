@@ -1,10 +1,10 @@
 {
-    "Subtitle": "Hello Word",
+    "Subtitle": "SharpDLLProxy can be used to quickly generate DLL Hook code, providing templates to help reverse people with security testing",
     "DLLUploadDesc": "Click or drag file to this area to upload(DLL)",
-    "DLLUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
+    "DLLUploadHint": "Upload the target DLL for proxy.",
     "BinUploadDesc": "Click or drag file to this area to upload(Bin)",
-    "BinUploadHint": "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
-    "Descrption": "description",
+    "BinUploadHint": "Upload the target Bin for execute.",
+    "Descrption": "Retrieves exported functions from a legitimate DLL and generates a proxy DLL source code/template for DLL proxy loading or sideloading.\nCreated together with a blog post for redteaming.co.uk -> https: //redteaming.co.uk/2020/07/12/dll-proxy-loading-your-favorite-c-implant/   ",
     "UploadButton": "Srtart Upload",
     "ProgDownloadButton": "Download Program(C)",
     "DllDownloadButton": "Download DLL",
@@ -14,5 +14,6 @@
     "Processing": "Processing...",
     "PleaseUpload": "Please upload the file",
     "InProgress": "Program is running... Please wait for a minute",
-    "DownloadError": "Uncaught error occured,download failed."
+    "DownloadError": "Uncaught error occured,download failed.",
+    "ChangeLanguage": "Change language"
 }
