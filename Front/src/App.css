@@ -1,6 +1,5 @@
 body {
     padding: 2%;
-
 }
 
 #title {
@@ -12,9 +11,19 @@ body {
 }
 
 #mainForm {
-    padding: 3%;
+    padding-left: 3%;
+    padding-right: 3%;    
     width: 50%;
 }
+
+.languageChange,.ant-dropdown {
+    padding-left: 3%;
+}
+
+.divider2{
+    margin-top: 0;
+}
+
 
 #descrption {
     text-align: center;

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Button, Divider, Flex, Form, Upload, message, Typography, MenuProps, Dropdown, Space } from "antd";
+import { Button, Divider, Flex, Form, Upload, message, Typography, MenuProps, Dropdown, Space, Col } from "antd";
 import { InboxOutlined, DownOutlined } from '@ant-design/icons';
 import './App.css'
 import { useEffect, useState } from "react";
@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [isUploadEnable, setIsUploadEnable] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState("");
   const [language,setLanguage] = useState("zh-CN");
-
+  const [form] = Form.useForm();
   const { t, i18n } = useTranslation();
 
   const items: MenuProps['items'] = [
@@ -105,9 +105,19 @@ const App: React.FC = () => {
     window.location.href = "./download?mode=" + mode + "&url=" + downloadUrl;
    }
 
+
+   function resetForm(){
+    form.resetFields();
+    setIsDownloadAble(false);
+    setIsUploadEnable(false);
+    setButtonLoading(false);
+    setDownloadUrl("");
+   }
+
   useEffect(() => {
     setLanguage(i18n.language);
   }, []);
+
 
   return (
     <>
@@ -118,30 +128,25 @@ const App: React.FC = () => {
         <Divider />
         <Flex>
 
+          <Form form={form} name="mainForm" id="mainForm" autoComplete="off" onFinish={onFinish} wrapperCol={{ span: 24}}>
+            <Flex gap={"large"} >
 
-          <Form name="mainForm" id="mainForm" autoComplete="off" onFinish={onFinish}  >
-            <Flex gap={"large"}>
-
-
-
+              <Col span={24}>
               <Form.Item name="DLL" rules={[{ required: true, message: 'Please input your DLL!' }]}>
-                <Dragger accept=".dll" maxCount={1} beforeUpload={() => false}>
+                <Dragger className="dragger" accept=".dll" maxCount={1} beforeUpload={() => false}>
                   <p className="ant-upload-drag-icon"><InboxOutlined /></p>
                   <p className="ant-upload-text">{t("DLLUploadDesc")}</p>
                   <p className="ant-upload-hint">{t("DLLUploadHint")}</p>
                 </Dragger>
               </Form.Item>
-
-
-
               <Form.Item name="Bin">
-                <Dragger maxCount={1} beforeUpload={() => false}>
+                <Dragger className="dragger" maxCount={1} beforeUpload={() => false}>
                   <p className="ant-upload-drag-icon"><InboxOutlined /></p>
                   <p className="ant-upload-text">{t("BinUploadDesc")}</p>
                   <p className="ant-upload-hint">{t("BinUploadHint")}</p>
                 </Dragger>
               </Form.Item>
-
+              </Col>
 
             </Flex>
             <Flex gap={"large"}>
@@ -150,7 +155,10 @@ const App: React.FC = () => {
               <Form.Item >
                 <Button loading={buttonLoading} disabled={isUploadEnable} htmlType="submit">{t("UploadButton")}</Button>
               </Form.Item>
-
+              
+              <Form.Item >
+              <Button onClick={() => resetForm()}>{t("ResetButton")}</Button>
+              </Form.Item>
 
               {
                 isDownloadAble &&
@@ -167,9 +175,9 @@ const App: React.FC = () => {
         </Flex>
 
 
-        <Divider />
+        <Divider className="divider2"/>
 
-        <Dropdown menu={{ items }}>
+        <Dropdown className="languageChange" menu={{ items }}>
           <a onClick={(e) => e.preventDefault()}>
             <Space>
               {t("ChangeLanguage")}

@@ -8,6 +8,7 @@
     "UploadButton": "Srtart Upload",
     "ProgDownloadButton": "Download Program(C)",
     "DllDownloadButton": "Download DLL",
+    "ResetButton": "Reset page",
     "BottomText": "Provide by LingkongSky",
     "FileSizeTooBig": "File size is too big,the max size is ",
     "UploadError": "Uncaught upload error occured. ",
