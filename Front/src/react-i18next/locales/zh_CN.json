@@ -13,6 +13,7 @@
 	"FileSizeTooBig": "文件大小过大，最大支持 ",
 	"UploadError": "出现了未捕获的错误。",
 	"Processing": "处理中...",
+	"UploadSuccess": "处理完成，请点击下载按钮以获取生成结果",
 	"PleaseUpload": "请先上传文件",
 	"InProgress": "程序正在处理中... 请稍等片刻",
 	"DownloadError": "出现了未捕获的错误，下载失败。",

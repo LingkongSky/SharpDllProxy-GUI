@@ -87,6 +87,7 @@ const App: React.FC = () => {
       processData: false,
       success: function (data: any) {
         if ("url" in data) {
+          messageApi.success(t("UploadSuccess"));
           setIsUploadEnable(true);
           setButtonLoading(false);
           setIsDownloadAble(true);

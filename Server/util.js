@@ -30,6 +30,21 @@ if (config.has('host') && config.get('host') &&
     sharp_dll_proxy = config.get('sharp_dll_proxy');
     max_file_size = config.get('max_file_size');
 
+
+    if (!path.isAbsolute(input_path)){
+        input_path = path.resolve(__dirname, input_path);
+    }   
+
+    if (!path.isAbsolute(output_path)) {
+        output_path = path.resolve(__dirname, output_path);
+    }  
+
+
+    if (!path.isAbsolute(sharp_dll_proxy)) {
+        sharp_dll_proxy = path.resolve(__dirname, sharp_dll_proxy);
+    }  
+
+
     createFolder(input_path);
     createFolder(output_path);
 

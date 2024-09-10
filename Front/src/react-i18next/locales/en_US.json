@@ -13,6 +13,7 @@
     "FileSizeTooBig": "File size is too big,the max size is ",
     "UploadError": "Uncaught upload error occured. ",
     "Processing": "Processing...",
+    "UploadSuccess": "Process  finished, please click the download button to get result",
     "PleaseUpload": "Please upload the file",
     "InProgress": "Program is running... Please wait for a minute",
     "DownloadError": "Uncaught error occured,download failed.",
