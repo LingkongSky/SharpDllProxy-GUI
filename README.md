@@ -25,7 +25,7 @@
 
 
 ## English
-![Imgur](https://imgur.com/eka7PJi)
+![Imgur](https://i.imgur.com/eka7PJi.jpg)
 
 This project is based on <https://github.com/Flangvik/SharpDllProxy>,
 Modifications were made to the source program, and add a GUI to make it deployable as a web page.
@@ -95,6 +95,8 @@ SharpDllProxy-GUI is released under the [MIT](LICENSE).
 - <https://github.com/expressjs/express>
 
 ## 简体中文
+![Imgur](https://i.imgur.com/Xk8RqJq.jpg)
+
 本项目基于<https://github.com/Flangvik/SharpDllProxy>实现。
 在源程序的基础上进行修补，同时添加了GUI以使其能以网页形式部署。
 
