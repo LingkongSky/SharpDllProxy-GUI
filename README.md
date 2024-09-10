@@ -1,4 +1,28 @@
 # SharpDLLProxy-GUI V1.0.0
+<p align="center">
+    <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
+    <a href="https://nodejs.org/en/about/previous-releases"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
+    <a href="https://github.com/LingkongSky/SharpDllProxy-GUI/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dotnetcore/WTM.svg" alt="GitHub license"></a>
+</p>
+
+
+ **- [English](#English)**
+ - [Frame](###Frame)
+ - [Environment Configuration](###Environment-Configuration)
+ - [Installation](#Installation)
+ - [Config Files](#Config-Files)
+ - [Service](#Service)
+ - [License](#License)
+
+ **- [简体中文](#简体中文)**
+ - [框架](#框架)
+ - [环境配置](#环境配置)
+ - [安装教程](#安装教程)
+ - [配置文件](#配置文件)
+ - [服务](#服务)
+ - [协议](#协议)
+ - [感谢](#感谢)
+
 
 ## English
 This project is based on <https://github.com/Flangvik/SharpDllProxy>,
@@ -37,7 +61,7 @@ cd Front;npm install;vite build
 ```sh
 cd Server;npm install;node app.js
 ```
-### Config files
+### Config Files
 Edit <code>default.json</code> if you want.
 You need restart the service to make the modifys take effect.
 ```json
@@ -59,6 +83,8 @@ pm2 start Server/app.js --name SharpDLLProxy-GUI
 ```
 **The default host is <http://127.0.0.1:4156>**
 
+### License
+SharpDllProxy-GUI is released under the [MIT](LICENSE).
 
 ### Thanks
 - <https://github.com/Flangvik/SharpDllProxy>
@@ -121,6 +147,9 @@ npm install pm2 -g && pm2 install pm2-logrotate
 pm2 start Server/app.js --name SharpDLLProxy-GUI
 ```
 **默认主机路径为<http://127.0.0.1:4156>**
+
+### 协议
+SharpDllProxy-GUI遵守[MIT](LICENSE)协议.
 
 ### 感谢
 - <https://github.com/Flangvik/SharpDllProxy>
