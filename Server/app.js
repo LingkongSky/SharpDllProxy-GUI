@@ -9,6 +9,7 @@ const path = require('path');
 
 const input_path = server.input_path;
 const output_path = server.output_path;
+const version = "1.0.0";
 
 try{
     // Start the server
@@ -25,7 +26,9 @@ try{
 
 
     app.listen(server.port, server.host, () => {
-        console.log("Server start in http://" + server.host + ":" + server.port);
+        console.log("Welcome to use the \x1B[32mSharpDllProxy-GUI " + version + "\x1B[0m");
+        console.log("It provide by \x1B[32mhttps://github.com/LingkongSky/SharpDllProxy-GUI\x1B[0m");
+        console.log("Server start in \x1B[32mhttp://" + server.host + ":" + server.port + "\x1B[0m");
     });
     }catch(e){
     console.log(e);
