@@ -51,8 +51,8 @@ Core: <code>.netcore3.1</code>
 - exec <code>node Server/app.js</code>
 
 **Docker**
-- docker pull sharpdllproxy-gui:v1
-- docker run -p 4156:4156 --name SharpDllProxy-GUI sharpdllproxy-gui:v1
+- docker pull kazeline/sharpdllproxy-gui:v1
+- docker run -p 4156:4156 --name SharpDllProxy-GUI azeline/sharpdllproxy-gui:v1
 
 
 ### Installation
@@ -132,8 +132,8 @@ Core: <code>.netcore3.1</code>
 - 运行<code>node Server/app.js</code>
 
 **Docker**
-- docker pull sharpdllproxy-gui:v1
-- docker run -p 4156:4156 --name SharpDllProxy-GUI sharpdllproxy-gui:v1
+- docker pull kazeline/sharpdllproxy-gui:v1
+- docker run -p 4156:4156 --name SharpDllProxy-GUI azeline/sharpdllproxy-gui:v1
 
 
 ### 安装教程
