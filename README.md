@@ -44,6 +44,17 @@ Core: <code>.netcore3.1</code>
 
 <code>netcore3.1</code> -> <https://dotnet.microsoft.com/en-us/download/dotnet/3.1>
 
+### Start quickly
+
+**Release**
+- downlaod the release and install the environment.
+- exec <code>node Server/app.js</code>
+
+**Docker**
+- docker pull sharpdllproxy-gui:v1
+- docker run -p 4156:4156 --name SharpDllProxy-GUI sharpdllproxy-gui:v1
+
+
 ### Installation
 
 Before you start it,you should install the <code>netcoreSDK 3.1</code>,<code>NodeJS</code>.
@@ -68,7 +79,7 @@ Edit <code>default.json</code> if you want.
 You need restart the service to make the modifys take effect.
 ```json
 {
-    "host": "127.0.0.1",
+    "host": "0.0.0.0",
     "port": "4156",
     "input_path": "../files/input",
     "output_path": "../files/output",
@@ -114,6 +125,17 @@ Core: <code>.netcore3.1</code>
 
 <code>netcore3.1</code> -> <https://dotnet.microsoft.com/zh-cn/download/dotnet/3.1>
 
+### 快速开始
+
+**Release**
+- 下载Release包以及必需的环境依赖。
+- 运行<code>node Server/app.js</code>
+
+**Docker**
+- docker pull sharpdllproxy-gui:v1
+- docker run -p 4156:4156 --name SharpDllProxy-GUI sharpdllproxy-gui:v1
+
+
 ### 安装教程
 
 在你开始之前，你需要先确保你已经安装了<code>netcoreSDK 3.1</code>及<code>NodeJS</code>。
@@ -136,7 +158,7 @@ cd Server;npm install;node app.js
 在修改之后重启服务使修改生效。
 ```json
 {
-    "host": "127.0.0.1",
+    "host": "0.0.0.0",
     "port": "4156",
     "input_path": "../files/input",
     "output_path": "../files/output",

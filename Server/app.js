@@ -9,7 +9,7 @@ const path = require('path');
 
 const input_path = server.input_path;
 const output_path = server.output_path;
-const version = "1.0.0";
+const version = "1.0.1";
 
 try{
     // Start the server
