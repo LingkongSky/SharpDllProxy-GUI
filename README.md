@@ -52,7 +52,7 @@ Core: <code>.netcore3.1</code>
 
 **Docker**
 - docker pull kazeline/sharpdllproxy-gui:v1
-- docker run -p 4156:4156 --name SharpDllProxy-GUI azeline/sharpdllproxy-gui:v1
+- docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
 
 
 ### Installation
@@ -133,7 +133,7 @@ Core: <code>.netcore3.1</code>
 
 **Docker**
 - docker pull kazeline/sharpdllproxy-gui:v1
-- docker run -p 4156:4156 --name SharpDllProxy-GUI azeline/sharpdllproxy-gui:v1
+- docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
 
 
 ### 安装教程
