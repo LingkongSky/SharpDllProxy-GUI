@@ -79,7 +79,7 @@ Edit <code>default.json</code> if you want.
 You need restart the service to make the modifys take effect.
 ```json
 {
-    "host": "0.0.0.0",
+    "host": "127.0.0.1",
     "port": "4156",
     "input_path": "../files/input",
     "output_path": "../files/output",
@@ -158,7 +158,7 @@ cd Server;npm install;node app.js
 在修改之后重启服务使修改生效。
 ```json
 {
-    "host": "0.0.0.0",
+    "host": "127.0.0.1",
     "port": "4156",
     "input_path": "../files/input",
     "output_path": "../files/output",
