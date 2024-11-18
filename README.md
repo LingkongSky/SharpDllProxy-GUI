@@ -51,9 +51,12 @@ Core: <code>.netcore3.1</code>
 - exec <code>node Server/app.js</code>
 
 **Docker**
-- docker pull kazeline/sharpdllproxy-gui:v1
-- docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
+> docker pull kazeline/sharpdllproxy-gui:v1
 
+> docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
+
+###  Redirect while not affect the original function
+- See also [template.cpp](template.cpp)
 
 ### Installation
 
@@ -132,9 +135,12 @@ Core: <code>.netcore3.1</code>
 - 运行<code>node Server/app.js</code>
 
 **Docker**
-- docker pull kazeline/sharpdllproxy-gui:v1
-- docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
+> docker pull kazeline/sharpdllproxy-gui:v1
 
+> docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
+
+###  转发的同时不影响原功能
+- 可参考[template.cpp](template.cpp)
 
 ### 安装教程
 
