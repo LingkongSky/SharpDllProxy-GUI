@@ -16,24 +16,30 @@
 #include <sstream>
 #include <WinInet.h>
 #include <commdlg.h>
-#include <QtCore/qstring.h>
-#include <QtOpenGL/qgl.h>
+
 
 #pragma comment(lib, "detours.lib")
 
 #define _CRT_SECURE_NO_DEPRECATE
 #pragma warning(disable : 4996)
-
+// ?renderText@QGLWidget@QT@@QEAAXNNNAEBVQString@2@AEBVQFont@2@@Z
 #pragma comment(linker, "/export:?renderText@QGLWidget@QT@@QEAAXNNNAEBVQString@2@AEBVQFont@2@@Z=tmpB458.?renderText@QGLWidget@QT@@QEAAXNNNAEBVQString@2@AEBVQFont@2@@Z,@499")
 
-typedef void(__fastcall *OriginalFunctionType)(QGLWidget *, double, double, double, const struct QString *, const struct QFont *);
+/*
+1. find the target function and get the adress
+2. add the originalFunction and DetourAttach
+3. add the typedef and OriginalFunctionType
+4. edit the redirect function
+*/
+
+typedef void(__fastcall *OriginalFunctionType)(double, double);
 OriginalFunctionType originalFunction = nullptr;
 
-void __fastcall MyFunction(QGLWidget *a1, double a2, double a3, double a4, const struct QString *a5, const struct QFont *a6)
+void __fastcall MyFunction(double a1, double a2)
 {
     HWND hwnd = GetActiveWindow();
     MessageBox(NULL, L"DLL HOOK", L"Tips", MB_OK);
-    originalFunction(a1, a2, a3, a4, a5, a6);
+    originalFunction(a1, a2);
 }
 
 
@@ -43,7 +49,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
     {
 
         // Get the address of the original function
-        originalFunction = (void(__fastcall *)(QGLWidget *, double, double, double, const struct QString *, const struct QFont *))GetProcAddress(GetModuleHandle(L"Qt5OpenGLQT"), "?renderText@QGLWidget@QT@@QEAAXNNNAEBVQString@2@AEBVQFont@2@@Z");
+        originalFunction = (void(__fastcall *)(double, double))GetProcAddress(GetModuleHandle(L"DLLNAME"), "?renderText@QGLWidget@QT@@QEAAXNNNAEBVQString@2@AEBVQFont@2@@Z");
         if (originalFunction != nullptr)
         {
             // Detour the original function
@@ -51,7 +57,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
             DetourTransactionBegin();
             DetourUpdateThread(GetCurrentThread());
             DetourAttach(&(PVOID &)originalFunction, MyFunction);
-
             DetourTransactionCommit();
         }
     }
