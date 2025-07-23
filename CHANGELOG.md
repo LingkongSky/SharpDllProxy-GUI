@@ -14,4 +14,5 @@
 ## [1.0.2]() (2025-7-23)
 - Improved the READDME.md
 - Allowed the cors requests
+- Removed the helmet
 - build the V1.0.2 release
