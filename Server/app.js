@@ -1,5 +1,6 @@
 const express = require("express");
 const helmet = require('helmet');
+const cors = require('cors');
 const app = express();
 const upload = require("./upload");
 const download = require("./download");
@@ -14,6 +15,7 @@ const version = "1.0.2";
 try{
     // Start the server
     app.use(helmet());
+    app.use(cors());
     app.use('/', express.static(path.resolve(__dirname, '..')  + "/Front/dist"));
     app.use("/upload", upload);
     app.use("/download", download);
