@@ -25,10 +25,10 @@
 
 
 ## English
-![Imgur](https://i.imgur.com/eka7PJi.jpg)
+![image](./Front/public/Homepage-enUS.png)
 
 This project is based on <https://github.com/Flangvik/SharpDllProxy>,
-Modifications were made to the source program, and add a GUI to make it deployable as a web page.
+Modifications were made to the source program, and added a GUI to make it deployable as a web page.
 
 If you don't know how to install dotnet on linux, please go to <https://learn.microsoft.com/en-us/dotnet/core/install/linux>
 
@@ -53,7 +53,7 @@ Core: <code>.netcore3.1</code>
 **Docker**
 > docker pull kazeline/sharpdllproxy-gui:v1
 
-> docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
+> docker run -d --restart=always  -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
 
 ###  Redirect while not affect the original function
 - See also [template.cpp](template.cpp)
@@ -109,7 +109,7 @@ SharpDllProxy-GUI is released under the [MIT](LICENSE).
 - <https://github.com/expressjs/express>
 
 ## 简体中文
-![Imgur](https://i.imgur.com/Xk8RqJq.jpg)
+![image](./Front/public/Homepage-zhCN.png)
 
 本项目基于<https://github.com/Flangvik/SharpDllProxy>实现。
 在源程序的基础上进行修补，同时添加了GUI以使其能以网页形式部署。
@@ -137,7 +137,7 @@ Core: <code>.netcore3.1</code>
 **Docker**
 > docker pull kazeline/sharpdllproxy-gui:v1
 
-> docker run -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
+> docker run -d --restart=always  -p 4156:4156 --name SharpDllProxy-GUI kazeline/sharpdllproxy-gui:v1
 
 ###  转发的同时不影响原功能
 - 可参考[template.cpp](template.cpp)
