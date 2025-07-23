@@ -15,4 +15,5 @@
 - Improved the READDME.md
 - Allowed the cors requests
 - Removed the helmet
+- Replace the docker apt source
 - build the V1.0.2 release
